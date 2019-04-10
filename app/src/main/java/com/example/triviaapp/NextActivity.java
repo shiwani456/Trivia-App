@@ -32,6 +32,7 @@ public class NextActivity extends AppCompatActivity {
             public void onClick(View v) {
                 int selected = radiogroup.getCheckedRadioButtonId();
                 radioButton = findViewById(selected);
+                //calling next page
                 Intent intent = new Intent(NextActivity.this,Next2Activity.class);
                 intent.putExtra("player",radioButton.getText());
                 intent.putExtra("name",data);

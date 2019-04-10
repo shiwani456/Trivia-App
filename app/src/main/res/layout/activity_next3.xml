@@ -62,7 +62,22 @@
         android:background="#fff"
         android:layout_margin="16dp"
         android:text="Next"
-        android:onClick="itemClicked"/>
+       />
 
+    <Button
+        android:id="@+id/nextbutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:layout_margin="16dp"
+        android:text="Show Summary"
+        />
+    <TextView
+        android:id="@+id/getthesummary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="start"
+        android:textColor="@android:color/black"/>
 
 </LinearLayout>

@@ -11,8 +11,8 @@ import android.widget.Toast;
 
 public class Next2Activity extends AppCompatActivity {
     private CheckBox whiteCheckBox, yellowCheckBox, orangeCheckBox, greenCheckBox;
-    private Button finishbutton;
-    private TextView quetwoTextView;
+    private Button finishbutton,nextbutton;
+    private TextView quetwoTextView,getthesummary;
     String data, player, queone;
     String getdata = "";
     DBHelper mydb;
@@ -21,13 +21,15 @@ public class Next2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_next3);
+        nextbutton = findViewById(R.id.nextbutton);
+        getthesummary = findViewById(R.id.getthesummary);
         whiteCheckBox = findViewById(R.id.whiteCheckBox);
         yellowCheckBox = findViewById(R.id.yellowCheckBox);
         orangeCheckBox = findViewById(R.id.orangeCheckBox);
         greenCheckBox = findViewById(R.id.greenCheckBox);
         quetwoTextView = findViewById(R.id.quetwoTextView);
 
-     itemClicked();
+        itemClicked();
 
 
         Intent i = getIntent();
@@ -39,13 +41,21 @@ public class Next2Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
+//Adding details to data base
                 mydb = new DBHelper(Next2Activity.this);
                 mydb.insertData(data, queone, player, quetwoTextView.getText().toString(), getdata);
+                //callinhg next page
                 Intent intent = new Intent(Next2Activity.this, FinalActivity.class);
                 startActivity(intent);
                 finish();
 
+            }
+        });
+        //showing summary of over work
+        nextbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getthesummary.setText(data+"\n"+queone+"\n"+player+"\n"+quetwoTextView.getText().toString()+"\n"+getdata);
             }
         });
 
@@ -87,7 +97,6 @@ public class Next2Activity extends AppCompatActivity {
                 }
             }
         });
-
 
 
     }

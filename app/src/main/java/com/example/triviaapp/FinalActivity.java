@@ -47,6 +47,7 @@ public class FinalActivity extends AppCompatActivity {
                 finish();
             }
         });
+        // For getting all the data from the data base
         historybutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
